@@ -19,7 +19,7 @@
 #define EE_HANDS
 
 #undef TAPPING_TERM
-#define TAPPING_TERM 150 // with permissive hold
+#define TAPPING_TERM 200 // with permissive hold
 #define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD_PER_KEY
 #define TAPPING_TOGGLE 2
@@ -52,7 +52,7 @@
 
 // ################# COMBO_TERM is set to how fast you have to hit both at the same time
 #ifdef COMBO_ENABLE
-#    define COMBO_TERM 20
+#    define COMBO_TERM 30
 // #    define COMBO_ONLY_FROM_LAYER 0
 #    define COMBO_TERM_PER_COMBO
 #    define COMBO_MUST_TAP_PER_COMBO

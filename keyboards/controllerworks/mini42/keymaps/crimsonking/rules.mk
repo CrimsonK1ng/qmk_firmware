@@ -5,6 +5,7 @@ CAPS_WORD_ENABLE = yes # CAPS WORD BB
 COMBO_ENABLE = yes
 SWAP_HANDS_ENABLE = yes
 # RGB_MATRIX_ENABLE = yes
+OS_DETECTION_ENABLE = yes
 # combos
 VPATH += keyboards/gboards
 

@@ -34,8 +34,8 @@ enum custom_keycodes {
 #define LAY_Y LT(_BRK, KC_Y)
 #define MINS  HYPR_T(KC_MINS)
 // MIDDLE
-#define MOD_M     RGUI_T(KC_M)
-#define MOD_N     RSFT_T(KC_N)
+#define MOD_M     RSFT_T(KC_M)
+#define MOD_N     RGUI_T(KC_N)
 #define MOD_E     RCTL_T(KC_E)
 #define MOD_I     LALT_T(KC_I)
 #define MOD_O     LT(_SYM, KC_O)
@@ -58,8 +58,8 @@ enum custom_keycodes {
 #define LAY_F LT(_NUM, KC_F)
 #define MOD_B KC_B
 // MIDDLE
-#define MOD_G   LGUI_T(KC_G)
-#define MOD_T   LSFT_T(KC_T)
+#define MOD_G   LSFT_T(KC_G)
+#define MOD_T   LGUI_T(KC_T)
 #define MOD_S   LCTL_T(KC_S)
 #define MOD_R   LALT_T(KC_R)
 #define MOD_A   LT(_SYM, KC_A)

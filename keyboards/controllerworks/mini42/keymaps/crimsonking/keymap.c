@@ -4,6 +4,9 @@
 
 #include <stdio.h>
 // #include "lib/oneshot.h"
+#ifdef OS_DETECTION_ENABLE
+#    include "os_detection.h"
+#endif
 #ifdef LAYER_LOCK_ENABLED
 #    include "lib/layer_lock.h"
 #endif
@@ -27,7 +30,6 @@ NOTES: swap_lctl_lgui is available in the keymap_config struct and will tell us 
 bool is_gui_tab_active = false; // ADD this near the begining of keymap.c
 uint16_t alt_tab_timer = 0;     // we will be using them soon.
 // END ALT TAB Timer
-bool osx = true;
 uint16_t timer;
 // bool numlock = false;
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -46,9 +48,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_SYM] = LAYOUT_FUN(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_BSLS, KC_TILD, KC_SLSH, KC_PERC, KC_PLUS,      WQ,                      TD_BSLS, KC_AMPR, KC_ASTR, KC_QUES, KC_SCLN, _______,
+      KC_BSLS, KC_TILD, KC_SLSH, KC_COLN, KC_PLUS,      WQ,                      TD_BSLS, KC_AMPR, KC_ASTR, KC_QUES, KC_SCLN, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,   KC_AT, KC_EXLM,  KC_EQL, KC_COLN, KC_MINS,                      KC_PIPE,  KC_EQL,  KC_DQT, KC_UNDS, TD_COLN, KC_BSLS,
+      _______,   KC_AT, KC_PERC, KC_EXLM,  KC_EQL, KC_MINS,                      KC_PIPE,  KC_EQL,  KC_DQT, KC_UNDS, TD_COLN, KC_BSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, _______,     GRV, KC_HASH, KC_PIPE, TD_UPDIR,                    TD_UPDIR, KC_CIRC,  KC_DLR,  KC_DOT, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -60,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      TG(_NAV),    OSMH,    OSMP,    OSMA, _______, _______,                      KC_PGUP,  PRVTAB,  NXTTAB,  CMDTAB,  CMDGRV, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,    OSMA,    OSMG,    OSMC,    OSMS, _______,                      ________________VIM_______________, _______,  KC_DEL,
+      _______,    OSMA,    OSMC,    OSMG,    OSMS, _______,                      ________________VIM_______________, _______,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, _______,    OSMM, _______, _______, _______,                      KC_PGDN, KC_HOME,  KC_END,   C_BSP, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -70,11 +72,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NUM] = LAYOUT_FUN( 
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, _______,    OSMP, _______, _______, _______,                      _______,    KC_7,    KC_8,    KC_9, KC_BSLS, _______,
+      _______,    KC_1,     TWO,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+---------+--------+-------+--------+--------|
-      _______,    OSMG,    OSMA,    OSMC,    OSMS, _______,                       KC_DOT,    KC_4,    KC_5,    KC_6, KC_COLN, _______,
+      _______, _______,    OSMA,    OSMC,    OSMG,    OSMS,                       KC_DOT,    KC_4,    KC_5,    KC_6, KC_COLN, KC_BSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+---------+--------+-------+--------+--------|
-         OSMH, _______,    OSMM, _______, _______, _______,                      _______,    KC_1,    KC_2,    KC_3, KC_SLSH,  KC_ENT,
+         OSMH, _______,    OSMM,    OSMS, _______, _______,                      _______,    KC_1,    KC_2,    KC_3, KC_SLSH,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------+--------|  --------+--------+--------+--------+--------+--------+--------|
                                           _______, CW_TOGG, KC_DOT,     KC_DOT,   POPZED, _______
                                        //`--------------------------'  `--------------------------'
@@ -129,11 +131,13 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case QK_TAP_DANCE ... QK_TAP_DANCE_MAX:
             return TAPPING_TERM;
 #    endif
-        case MOD_O:
-        case MOD_I:
-        case MOD_R:
-        case MOD_A:
+        case MOD_R: // alt is annoying to trigger
+        case MOD_E: // still use permissive hold for ctrl
             return TAPPING_TERM + 50;
+        case BSPC: // still use permissive hold for ctrl
+            return TAPPING_TERM - 50;
+        case SPC: // still use permissive hold for ctrl
+            return TAPPING_TERM - 25;
         default:
             return TAPPING_TERM;
     }
@@ -145,11 +149,12 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
         // Home-row and other tight combos
         case esc_homer:
-        case ltab:
+        case lesc:
+            return COMBO_TERM - 10;
         case ctrl_bspc:
+        case ltab:
         case alt_bspc:
         case colon:
-        case lesc:
         // case nav_layer_toggle: // three keys takes more effort
         // one shot on top
         default: // this is pretty decent
@@ -189,19 +194,17 @@ bool get_combo_must_tap(uint16_t index, combo_t *combo) {
 // makes it a little difficult to manage with layer taps
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case SPC:
-
         // MIDDLE
         case MOD_A: // try high tapping term and permissive hold
-        // case MOD_R: // alt is annoying to trigger
-        // case MOD_S:
-        // case MOD_T:
-        // case MOD_G:
+        case MOD_R: // alt is annoying to trigger
+        case MOD_S:
+        case MOD_T:
+        case MOD_G:
 
-        // case MOD_M:
-        // case MOD_N:
-        // case MOD_E: // still use permissive hold for ctrl
-        // case MOD_I:
+        case MOD_M:
+        case MOD_N:
+        case MOD_E: // still use permissive hold for ctrl
+        case MOD_I:
         case MOD_O: // this pinky lags behind the most, more than left pinky
         // bottom row
         // case MOD_X:
@@ -234,8 +237,24 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 
 bool oled_render_layer(void) {
     // Host Keyboard Layer Status
+    // enum {
+    //     OS_UNSURE,
+    //     OS_LINUX,
+    //     OS_WINDOWS,
+    //     OS_MACOS,
+    //     OS_IOS,
+    // } os_variant_t;
+    switch (detected_host_os()) {
+        case OS_LINUX:
+            oled_write_P(PSTR("UNIX\n"), false);
+        case OS_WINDOWS:
+            oled_write_P(PSTR("WIN\n"), false);
+        case OS_MACOS:
+            oled_write_P(PSTR("MAC\n"), false);
+        default:
+            oled_write_P(PSTR("VOID\n"), false);
+    }
     // oled_write_P((osx) ? PSTR("MAC \n") : PSTR("UNIX\n"), false);
-    oled_write_P(PSTR("VOID\n"), false);
     oled_write_P(PSTR("----\n"), false);
     uint8_t layer = get_highest_layer(layer_state);
     oled_write_P((layer == _BASE) ? PSTR("BASE\n") : PSTR("\n"), false);
@@ -341,11 +360,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // case QK_MOD_TAP ... QK_MOD_TAP_MAX:
         //   return process_mod_hold(keycode, record);
         // OSM(mod) - One-shot mod
-        case CG_TOGG:
-            if (record->event.pressed) {
-                osx = !osx;
-            }
-            return false;
+        // case CG_TOGG:
+        //     if (record->event.pressed) {
+        //         osx = !osx;
+        //     }
+        //     return false;
         case GRV:
             if (record->tap.count == 0) { // Key is being held.
                 if (record->event.pressed) {
