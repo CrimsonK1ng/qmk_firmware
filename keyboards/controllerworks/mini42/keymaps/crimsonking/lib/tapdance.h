@@ -32,6 +32,7 @@ enum { TD_CODE_START,
   TP_TILDA,
   TP_QUOT,
   TP_DELNAV,
+  TP_TAB,
   TD_CODE_END };
 // clang-format on
 
@@ -44,6 +45,7 @@ enum { TD_CODE_START,
 #    define TD_EXLM TD(TP_EXLM)
 #    define TD_TILDA TD(TP_TILDA)
 #    define TD_QUOT TD(TP_QUOT)
+#    define TD_TAB TD(TP_TAB)
 #    define TD_DELNAV TD(TP_DELNAV)
 
 #endif

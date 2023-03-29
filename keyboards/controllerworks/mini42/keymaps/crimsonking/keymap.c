@@ -1,3 +1,4 @@
+#include "action_code.h"
 #include "quantum.h"
 #include QMK_KEYBOARD_H
 #include "lib/keycodes.h"
@@ -37,36 +38,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        ADJUST,   MOD_Q,   LAY_W,   LAY_F,    KC_P,   MOD_B,                        MOD_J,    KC_L,   LAY_U,   LAY_Y,    MINS,   FBSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       MODLAY,   MOD_A,   MOD_R,   MOD_S,   MOD_T,   MOD_G,                        MOD_M,   MOD_N,   MOD_E,   MOD_I,   MOD_O,  TD_QUOT,
+       MODLAY,   MOD_A,   MOD_R,   MOD_S,   MOD_T,   MOD_G,                        MOD_M,   MOD_N,   MOD_E,   MOD_I,   MOD_O,    QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        SH_OS,   MOD_Z,   MOD_X,   MOD_C,   MOD_D,   MOD_V,                        MOD_K,   MOD_H,MOD_COMM, MOD_DOT, MOD_SLSH, QK_LEAD,
+          ESC,   MOD_Z,   MOD_X,   MOD_C,   MOD_D,   MOD_V,                        MOD_K,   MOD_H,MOD_COMM, MOD_DOT, MOD_SLSH, CW_TOGG,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          CW_TOGG,    BSPC,     ENT,       OSMS,     SPC,  TAB
+                                 LT(_NUM, KC_TAB),    BSPC,     ENT,       OSMS,     SPC,  TAB
                                       //`--------------------------'  `--------------------------'
           
   ),
 
   [_SYM] = LAYOUT_FUN(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_BSLS, KC_TILD, KC_SLSH, KC_COLN, KC_PLUS,      WQ,                      TD_BSLS, KC_AMPR, KC_ASTR, KC_QUES, KC_SCLN, _______,
+           WQ,     GRV, KC_SLSH, KC_PERC, KC_PIPE,      WQ,                      KC_PIPE, KC_AMPR, KC_ASTR, KC_QUES, KC_SCLN, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,   KC_AT, KC_PERC, KC_EXLM,  KC_EQL, KC_MINS,                      KC_PIPE,  KC_EQL,  KC_DQT, KC_UNDS, TD_COLN, KC_BSLS,
+      _______,   KC_AT, KC_COLN, KC_EXLM,  KC_EQL, KC_PLUS,                      KC_MINS,  KC_EQL,  KC_DQT, KC_UNDS, KC_BSLS, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______,     GRV, KC_HASH, KC_PIPE, TD_UPDIR,                    TD_UPDIR, KC_CIRC,  KC_DLR,  KC_DOT, _______, _______,
+      _______, _______,TD_TILDA, KC_HASH, KC_BSLS, TD_UPDIR,                    TD_UPDIR, KC_CIRC,  KC_DLR,  KC_DOT, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_BSLS, KC_COLN, _______,     KC_ENT, KC_SPC, _______
+                                          KC_BSLS, KC_COLN, KC_BSLS,    KC_COLN, KC_SPC, _______
                                        //`--------------------------'  `--------------------------'
   ),
 
   [_NAV] = LAYOUT_FUN( //trying redundent mod placement for easier navigation
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     TG(_NAV),    OSMH,    OSMP,    OSMA, _______, _______,                      KC_PGUP,  PRVTAB,  NXTTAB,  CMDTAB,  CMDGRV, KC_BSPC,
+      _______, _______, _______,    OSMA, _______, _______,                      KC_PGUP,  PRVTAB,  NXTTAB,  CMDTAB,  CMDGRV, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,    OSMA,    OSMC,    OSMG,    OSMS, _______,                      ________________VIM_______________, _______,  KC_DEL,
+      _______,    OSMG,    OSMC,    OSMA,    OSMS, _______,                      ________________VIM_______________, _______,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______,    OSMM, _______, _______, _______,                      KC_PGDN, KC_HOME,  KC_END,   C_BSP, _______, _______,
+      _______,    OSMH,    OSMM, _______, _______, _______,                      KC_PGDN, KC_HOME,  KC_END,   C_BSP, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         TG(_NAV), KC_LGUI, KC_LSFT,    KC_LSFT,  KC_ENT, A_BSP
+                                          _______, KC_LGUI, KC_LCTL,    KC_LSFT,  KC_ENT, A_BSP
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -74,9 +75,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______,    KC_1,     TWO,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+---------+--------+-------+--------+--------|
-      _______, _______,    OSMA,    OSMC,    OSMG,    OSMS,                       KC_DOT,    KC_4,    KC_5,    KC_6, KC_COLN, KC_BSLS,
+      _______,    OSMG,    OSMC,    OSMA,    OSMS,    OSMH,                       KC_DOT,    KC_4,    KC_5,    KC_6, KC_COLN, KC_BSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+---------+--------+-------+--------+--------|
-         OSMH, _______,    OSMM,    OSMS, _______, _______,                      _______,    KC_1,    KC_2,    KC_3, KC_SLSH,  KC_ENT,
+      _______, _______, _______, _______, _______,    OSMM,                      _______,    KC_1,    KC_2,    KC_3, KC_SLSH,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------+--------|  --------+--------+--------+--------+--------+--------+--------|
                                           _______, CW_TOGG, KC_DOT,     KC_DOT,   POPZED, _______
                                        //`--------------------------'  `--------------------------'
@@ -84,13 +85,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_BRK] = LAYOUT_FUN( // bracks on right, terminal stuff left
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______,   KC_LT,   KC_GT, KC_LCBR, KC_RCBR, _______,                      _______, KC_RCBR, KC_LCBR, KC_RBRC, KC_LBRC, _______,
+      _______,   KC_LT,   KC_GT, KC_LCBR, KC_RCBR, _______,                      _______, _______, QK_LEAD, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, KC_LPRN, KC_RPRN, KC_BSLS, _______,                      _______, _______, KC_RPRN, KC_LPRN, _______, KC_BSLS,
+      _______, _______, KC_LPRN, KC_RPRN, KC_BSLS, _______,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, KC_LBRC, KC_RBRC, _______, _______,                      _______, _______,   KC_GT,   KC_LT, _______, _______,
+      _______, _______, KC_LBRC, KC_RBRC, _______, _______,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______, KC_COLN,   _______, _______, _______
+                                          _______, KC_COLN, _______,     KC_ENT, _______, _______
                                        //`--------------------------'  `--------------------------'
   ),
 
@@ -129,15 +130,28 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 #    ifdef TAP_DANCE_ENABLE
         // set tap dance keys to use a shorter tap term
         case QK_TAP_DANCE ... QK_TAP_DANCE_MAX:
-            return TAPPING_TERM;
-#    endif
-        case MOD_R: // alt is annoying to trigger
-        case MOD_E: // still use permissive hold for ctrl
-            return TAPPING_TERM + 50;
-        case BSPC: // still use permissive hold for ctrl
             return TAPPING_TERM - 50;
-        case SPC: // still use permissive hold for ctrl
-            return TAPPING_TERM - 25;
+#    endif
+        // case BSPC: // still use permissive hold for ctrl
+        //     return TAPPING_TERM - 50;
+        // case SPC: // still use permissive hold for ctrl
+        //     return TAPPING_TERM - 25;
+        // case MOD_A: // try high tapping term and permissive hold
+        case MOD_R: // alt is annoying to trigger
+            return TAPPING_TERM + 25;
+        case MOD_S:
+            return TAPPING_TERM - 10;
+        // case MOD_T:
+        // case MOD_G:
+
+        // case MOD_M:
+        // case MOD_N:
+        case MOD_E: // still use permissive hold for ctrl
+            return TAPPING_TERM - 10;
+        case MOD_I:
+            // case MOD_O: // this pinky lags behind the most, more than left pinky
+            return TAPPING_TERM + 25;
+
         default:
             return TAPPING_TERM;
     }
@@ -155,6 +169,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case ltab:
         case alt_bspc:
         case colon:
+        case caps:
         // case nav_layer_toggle: // three keys takes more effort
         // one shot on top
         default: // this is pretty decent
@@ -190,6 +205,25 @@ bool get_combo_must_tap(uint16_t index, combo_t *combo) {
 }
 #endif
 
+#ifdef HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case BSPC:
+        case ENT:
+        case MODLAY:
+        case ESC:
+        case TAB:
+            // case MOD_SLSH:
+            // case MOD_Z:
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
+}
+#endif
+
 #ifdef PERMISSIVE_HOLD_PER_KEY
 // makes it a little difficult to manage with layer taps
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
@@ -206,8 +240,9 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case MOD_E: // still use permissive hold for ctrl
         case MOD_I:
         case MOD_O: // this pinky lags behind the most, more than left pinky
-        // bottom row
-        // case MOD_X:
+                    // bottom row
+        case MOD_V:
+        case MOD_K:
         // case MOD_D:
         // case MOD_H:
         // case MOD_DOT:
@@ -247,12 +282,16 @@ bool oled_render_layer(void) {
     switch (detected_host_os()) {
         case OS_LINUX:
             oled_write_P(PSTR("UNIX\n"), false);
+            break;
         case OS_WINDOWS:
-            oled_write_P(PSTR("WIN\n"), false);
+            oled_write_P(PSTR(" WIN\n"), false);
+            break;
         case OS_MACOS:
-            oled_write_P(PSTR("MAC\n"), false);
+            oled_write_P(PSTR(" MAC\n"), false);
+            break;
         default:
             oled_write_P(PSTR("VOID\n"), false);
+            break;
     }
     // oled_write_P((osx) ? PSTR("MAC \n") : PSTR("UNIX\n"), false);
     oled_write_P(PSTR("----\n"), false);
@@ -327,20 +366,6 @@ void matrix_scan_user(void) { // The very important timer.
         }
     }
 }
-
-#ifdef LEADER_ENABLE
-void leader_end_user(void) {
-    if (leader_sequence_one_key(KC_W)) {
-        SEND_STRING(":wq" SS_TAP(X_ENT));
-    } else if (leader_sequence_two_keys(KC_F, KC_R)) {
-        SEND_STRING(":%s///g" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-    } else if (leader_sequence_two_keys(KC_G, KC_O)) {
-        SEND_STRING("if err != nil {}");
-    } else if (leader_sequence_two_keys(KC_X, KC_X)) {
-        SEND_STRING("| xargs -I {} \\;" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-    }
-}
-#endif
 
 // repeat key setup stolen from precondition gist here: https://gist.github.com/NotGate/3e3d8ab81300a86522b2c2549f99b131
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -434,35 +459,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 };
 
-// Also don't really need this so turning it off
-#ifdef HOLD_ON_OTHER_KEY_PRESS_PER_KEY
-// makes it a little difficult to manage with layer taps
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case ENT:
-        case BSPC:
-            return true;
-        default:
-            // Do not select the hold action when another key is pressed.
-            return false;
-    }
-}
-#endif
-
-// Don't really need it I think
-#ifdef TAPPING_FORCE_HOLD_PER_KEY
-bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case SPC:
-            // case BSPC:
-            // case ENT:
-            return true;
-        default:
-            return false;
-    }
-}
-#endif
-
 #ifdef SWAP_HANDS_ENABLE
 __attribute__((weak)) const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
     // Left
@@ -475,4 +471,39 @@ __attribute__((weak)) const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRI
     {{0, 1}, {1, 1}, {2, 1}, {3, 1}, {4, 1}, {5, 1}},
     {{0, 2}, {1, 2}, {2, 2}, {3, 2}, {4, 2}, {5, 2}},
     {{0, 3}, {1, 3}, {2, 3}, {3, 3}, {4, 3}, {5, 3}}};
+#endif
+
+#ifdef LEADER_ENABLE
+void send_os_mod(uint16_t keycode) {
+    switch (detected_host_os()) {
+        case OS_LINUX:
+        case OS_WINDOWS:
+            tap_code16(C(keycode));
+            break;
+        case OS_MACOS:
+            tap_code16(G(keycode));
+            break;
+        default:
+            break;
+    }
+}
+void leader_end_user(void) {
+    if (leader_sequence_one_key(KC_W)) {
+        SEND_STRING(":wq" SS_TAP(X_ENT));
+    } else if (leader_sequence_one_key(KC_V)) {
+        send_os_mod(KC_V);
+    } else if (leader_sequence_one_key(KC_C)) {
+        send_os_mod(KC_C);
+    } else if (leader_sequence_two_keys(KC_F, KC_R)) {
+        SEND_STRING(":%s///g" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+    } else if (leader_sequence_two_keys(KC_G, KC_O)) {
+        SEND_STRING("if err != nil {}");
+    } else if (leader_sequence_two_keys(KC_X, KC_X)) {
+        SEND_STRING("| xargs -I {} \\;" SS_TAP(X_LEFT) SS_TAP(X_LEFT));
+    } else if (leader_sequence_two_keys(KC_V, KC_V)) {
+        send_os_mod(S(KC_V));
+    } else if (leader_sequence_two_keys(KC_C, KC_C)) {
+        send_os_mod(S(KC_C));
+    }
+}
 #endif

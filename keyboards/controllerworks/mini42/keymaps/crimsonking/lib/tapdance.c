@@ -1,3 +1,5 @@
+#include "action_util.h"
+#include "caps_word.h"
 #include "quantum.h"
 #include QMK_KEYBOARD_H
 
@@ -128,9 +130,6 @@ void td_tilda(tap_dance_state_t *state, void *user_data) {
             SEND_STRING("~/");
             break;
             // for quick quick tapping
-        case TD_DOUBLE_TAP:
-            SEND_STRING("~\\");
-            break;
         default:
             break;
     }
@@ -150,6 +149,20 @@ void td_quot(tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+
+void td_tab(tap_dance_state_t *state, void *user_data) {
+    tap_state.state = cur_dance(state);
+    switch (tap_state.state) {
+        case TD_SINGLE_TAP:
+            tap_code16(KC_TAB);
+            break;
+        case TD_SINGLE_HOLD:
+            leader_start();
+            break;
+        default:
+            break;
+    }
+}
 // clang-format off
 
 // Tap dance declarations
@@ -162,6 +175,7 @@ tap_dance_action_t tap_dance_actions[] = {
     [SDB_COLN] = ACTION_TAP_DANCE_FN(td_colon),
     [TP_EXLM] = ACTION_TAP_DANCE_FN(td_exlm),
     [TP_TILDA] = ACTION_TAP_DANCE_FN(td_tilda),
+    [TP_TAB] = ACTION_TAP_DANCE_FN(td_tab),
     [TP_QUOT] = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_ENT),
     [TP_DELNAV] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_DEL, _NAV),
 };
