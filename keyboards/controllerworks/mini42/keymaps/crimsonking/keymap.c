@@ -40,34 +40,34 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        MODLAY,   MOD_A,   MOD_R,   MOD_S,   MOD_T,   MOD_G,                        MOD_M,   MOD_N,   MOD_E,   MOD_I,   MOD_O,    QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-          ESC,   MOD_Z,   MOD_X,   MOD_C,   MOD_D,   MOD_V,                        MOD_K,   MOD_H,MOD_COMM, MOD_DOT, MOD_SLSH, CW_TOGG,
+       KC_TAB,   MOD_Z,   MOD_X,   MOD_C,   MOD_D,   MOD_V,                        MOD_K,   MOD_H,MOD_COMM, MOD_DOT, MOD_SLSH, CW_TOGG,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                 LT(_NUM, KC_TAB),    BSPC,     ENT,       OSMS,     SPC,  TAB
+                                              ESC,    BSPC,     ENT,       OSMS,     SPC,  TAB
                                       //`--------------------------'  `--------------------------'
           
   ),
 
   [_SYM] = LAYOUT_FUN(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-           WQ,     GRV, KC_SLSH, KC_PERC, KC_PIPE,      WQ,                      KC_PIPE, KC_AMPR, KC_ASTR, KC_QUES, KC_SCLN, _______,
+      _______,TD_TILDA, KC_SLSH, KC_COLN, KC_BSLS,      WQ,                      KC_PIPE, KC_AMPR, KC_ASTR, KC_QUES, KC_SCLN, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,   KC_AT, KC_COLN, KC_EXLM,  KC_EQL, KC_PLUS,                      KC_MINS,  KC_EQL,  KC_DQT, KC_UNDS, KC_BSLS, _______,
+      _______,   KC_AT, KC_PERC, KC_EXLM,  KC_EQL, KC_PLUS,                      KC_MINS,  KC_EQL,  KC_DQT, KC_UNDS, KC_BSLS, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______,TD_TILDA, KC_HASH, KC_BSLS, TD_UPDIR,                    TD_UPDIR, KC_CIRC,  KC_DLR,  KC_DOT, _______, _______,
+      _______, _______,     GRV, KC_HASH, KC_PIPE, TD_UPDIR,                    TD_UPDIR, KC_CIRC,  KC_DLR,  KC_DOT, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_BSLS, KC_COLN, KC_BSLS,    KC_COLN, KC_SPC, _______
+                                          KC_BSLS, KC_COLN, MO(_BRK),   MO(_BRK), KC_SPC, _______
                                        //`--------------------------'  `--------------------------'
   ),
 
   [_NAV] = LAYOUT_FUN( //trying redundent mod placement for easier navigation
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, _______, _______,    OSMA, _______, _______,                      KC_PGUP,  PRVTAB,  NXTTAB,  CMDTAB,  CMDGRV, KC_BSPC,
+      _______, _______, _______,    OSMA,    OSMG, KC_PGUP,                       CMDGRV,  PRVTAB,  NXTTAB,  CMDTAB,  CMDGRV, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,    OSMG,    OSMC,    OSMA,    OSMS, _______,                      ________________VIM_______________, _______,  KC_DEL,
+      _______,MO(_NUM),    OSMA,    OSMC,    OSMS, KC_PGDN,                      ________________VIM_______________, _______,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,    OSMH,    OSMM, _______, _______, _______,                      KC_PGDN, KC_HOME,  KC_END,   C_BSP, _______, _______,
+      _______, _______, _______, _______, _______, _______,                     TD_UPDIR, KC_HOME,  KC_END,   C_BSP, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, KC_LGUI, KC_LCTL,    KC_LSFT,  KC_ENT, A_BSP
+                                           CMDTAB, KC_LGUI, KC_LCTL,    KC_LSFT,  KC_ENT, A_BSP
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -75,9 +75,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______,    KC_1,     TWO,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+---------+--------+-------+--------+--------|
-      _______,    OSMG,    OSMC,    OSMA,    OSMS,    OSMH,                       KC_DOT,    KC_4,    KC_5,    KC_6, KC_COLN, KC_BSLS,
+      _______,    OSMG,    OSMA,    OSMC,    OSMS, _______,                       KC_DOT,    KC_4,    KC_5,    KC_6, KC_COLN, KC_BSLS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+---------+--------+-------+--------+--------|
-      _______, _______, _______, _______, _______,    OSMM,                      _______,    KC_1,    KC_2,    KC_3, KC_SLSH,  KC_ENT,
+      _______, _______, _______, _______, _______, _______,                      _______,    KC_1,    KC_2,    KC_3, KC_SLSH,  KC_ENT,
   //|--------+--------+--------+--------+--------+--------+--------|  --------+--------+--------+--------+--------+--------+--------|
                                           _______, CW_TOGG, KC_DOT,     KC_DOT,   POPZED, _______
                                        //`--------------------------'  `--------------------------'
@@ -85,36 +85,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_BRK] = LAYOUT_FUN( // bracks on right, terminal stuff left
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______,   KC_LT,   KC_GT, KC_LCBR, KC_RCBR, _______,                      _______, _______, QK_LEAD, _______, _______, _______,
+      _______,   KC_LT,   KC_GT, KC_LCBR, KC_RCBR, _______,                      _______,    OSMG,    OSMA, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______, KC_LPRN, KC_RPRN, KC_BSLS, _______,                      _______, _______, _______, _______, _______, _______,
+      _______, _______, KC_LPRN, KC_RPRN, KC_BSLS, _______,                      _______,    OSMS,    OSMC, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, _______, KC_LBRC, KC_RBRC, _______, _______,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, KC_COLN, _______,     KC_ENT, _______, _______
+                                          _______, KC_COLN, _______,    KC_ENT, _______, QK_LEAD
                                        //`--------------------------'  `--------------------------'
   ),
 
 
   [_FUNC] = LAYOUT_FUN( 
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, _______,    KC_4,    KC_5,    KC_6, _______,                      _______,   KC_F9,  KC_F10,  KC_F11,  KC_F12, _______,
+        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,    KC_0,    KC_1,    KC_2,    KC_3, _______,                      _______,   KC_F5,   KC_F6,   KC_F7,   KC_F8, _______,
+      _______, _______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, _______,    KC_7,    KC_8,    KC_9, _______,                      _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4, _______,
+      _______, QK_LEAD,  KC_F10,  KC_F11,  KC_F12, _______,                      _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______,    KC_0, _______,    _______, _______, _______
+                                          _______, _______, _______,    _______, _______, _______
                                        //`--------------------------'  `--------------------------'
   ),
 
   [_ADJUST] = LAYOUT_FUN(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, RGB_TOG, _______, _______, _______, QK_BOOT,                      RGB_HUD, RGB_HUI, RGB_RMOD, RGB_MOD, _______, _______,
+      _______, RGB_TOG, RGB_SAD, RGB_SAI, _______, QK_BOOT,                      RGB_HUD, RGB_HUI, RGB_RMOD, RGB_MOD, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, RGB_SAD, RGB_SAI, RGB_SPD, RGB_SPI, _______,                      KC_BRIU, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______,
+      _______, _______, RGB_SPD, RGB_SPI, _______, _______,                      KC_BRIU, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, RGB_VAD, RGB_VAI, _______, _______, _______,                      KC_BRID, KC_VOLD, KC_MUTE, KC_VOLU, _______, _______,
+      _______, _______, RGB_VAD, RGB_VAI, _______, _______,                      KC_BRID, KC_VOLD, KC_MUTE, KC_VOLU, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           CG_TOGG, _______,  _______,    _______, _______,  _______
                                       //`--------------------------'  `--------------------------'
@@ -136,21 +136,21 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         //     return TAPPING_TERM - 50;
         // case SPC: // still use permissive hold for ctrl
         //     return TAPPING_TERM - 25;
-        // case MOD_A: // try high tapping term and permissive hold
+        case MOD_A: // try high tapping term and permissive hold
         case MOD_R: // alt is annoying to trigger
-            return TAPPING_TERM + 25;
-        case MOD_S:
-            return TAPPING_TERM - 10;
+            return TAPPING_TERM + 15;
+        // case MOD_S:
+        //     return TAPPING_TERM - 10;
         // case MOD_T:
         // case MOD_G:
 
         // case MOD_M:
         // case MOD_N:
-        case MOD_E: // still use permissive hold for ctrl
-            return TAPPING_TERM - 10;
+        // case MOD_E: // still use permissive hold for ctrl
+        //     return TAPPING_TERM - 10;
         case MOD_I:
-            // case MOD_O: // this pinky lags behind the most, more than left pinky
-            return TAPPING_TERM + 25;
+        case MOD_O: // this pinky lags behind the most, more than left pinky
+            return TAPPING_TERM + 15;
 
         default:
             return TAPPING_TERM;
@@ -165,11 +165,12 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case esc_homer:
         case lesc:
             return COMBO_TERM - 10;
-        case ctrl_bspc:
-        case ltab:
-        case alt_bspc:
-        case colon:
-        case caps:
+        // case ctrl_bspc:
+        // case ltab:
+        // // case terminal:
+        // case alt_bspc:
+        // case colon:
+        // case caps:
         // case nav_layer_toggle: // three keys takes more effort
         // one shot on top
         default: // this is pretty decent
@@ -193,26 +194,23 @@ bool get_combo_must_hold(uint16_t index, combo_t *combo) {
 
 #ifdef COMBO_MUST_TAP_PER_COMBO
 bool get_combo_must_tap(uint16_t index, combo_t *combo) {
-    switch (index) {
-        case esc_homer:
-        case ltab:
-        case lesc:
-        case ctrl_bspc:
-        case alt_bspc:
-            return true;
+    if (KEYCODE_IS_MOD(combo->keycode) || (combo->keycode >= QK_MOMENTARY && combo->keycode <= QK_MOMENTARY_MAX) // MO(kc) keycodes
+    ) {
+        return false;
     }
-    return false;
+    return true;
 }
 #endif
 
 #ifdef HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case BSPC:
+        // case BSPC:
         case ENT:
         case MODLAY:
         case ESC:
         case TAB:
+        case LTAB:
             // case MOD_SLSH:
             // case MOD_Z:
             // Immediately select the hold action when another key is pressed.
@@ -228,7 +226,8 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 // makes it a little difficult to manage with layer taps
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        // MIDDLE
+            // MIDDLE
+            //
         case MOD_A: // try high tapping term and permissive hold
         case MOD_R: // alt is annoying to trigger
         case MOD_S:
@@ -240,7 +239,8 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case MOD_E: // still use permissive hold for ctrl
         case MOD_I:
         case MOD_O: // this pinky lags behind the most, more than left pinky
-                    // bottom row
+        case QUOT:
+            // bottom row
         case MOD_V:
         case MOD_K:
         // case MOD_D:
@@ -504,6 +504,10 @@ void leader_end_user(void) {
         send_os_mod(S(KC_V));
     } else if (leader_sequence_two_keys(KC_C, KC_C)) {
         send_os_mod(S(KC_C));
+    } else if (leader_sequence_two_keys(KC_G, KC_P)) {
+        SEND_STRING("git push origin main");
+    } else if (leader_sequence_two_keys(KC_G, KC_C)) {
+        SEND_STRING("git commit -m \"\"" SS_TAP(X_LEFT));
     }
 }
 #endif
