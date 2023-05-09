@@ -31,10 +31,11 @@ enum custom_keycodes {
 #define OSMGS OSM(MOD_LSFT | MOD_LGUI)
 
 // TOP RIGHT
-#define MOD_J MEH_T(KC_J)
-#define LAY_U KC_U
+#define MOD_J KC_J
+#define LAY_U LT(_BRK, KC_U)
 #define LAY_Y LT(_BRK, KC_Y)
-#define MINS  LT(_NAV, KC_MINS)
+#define MINS  MEH_T(KC_MINS)
+#define HBSPC   LT(_FUNC, KC_BSPC)
 // MIDDLE
 #define MOD_M     RSFT_T(KC_M)
 #define MOD_N     RGUI_T(KC_N)
@@ -46,15 +47,15 @@ enum custom_keycodes {
 #define MOD_SLSH  RGUI_T(KC_SLSH)
 #define MOD_DOT   LALT_T(KC_DOT)
 #define MOD_COMM  RSFT_T(KC_COMM)
-#define MOD_H     KC_H
+#define MOD_H     RCTL_T(KC_H)
 #define MOD_K     KC_K
 // END RIGHT
 
 // TOP LEFT
-#define MOD_Q LT(_BRK, KC_Q)
+#define MOD_Q MEH_T(KC_Q)
 #define LAY_W LT(_NAV, KC_W)
 #define LAY_F LT(_NUM, KC_F)
-#define MOD_B MEH_T(KC_B)
+#define MOD_B KC_B
 // MIDDLE
 #define MOD_G   LSFT_T(KC_G)
 #define MOD_T   LGUI_T(KC_T)
@@ -67,12 +68,12 @@ enum custom_keycodes {
 #define MOD_Z   LGUI_T(KC_Z)
 #define MOD_X   LALT_T(KC_X)
 #define MOD_C   LSFT_T(KC_C)
-#define MOD_D   KC_D
+#define MOD_D   LCTL_T(KC_D)
 #define MOD_V   KC_V
 // THUMBS
 #define COLN   LT(_FUNC, KC_COLN)
 #define BSPC   LT(_SYM, KC_BSPC)
-#define ENT    LT(_NUM, KC_ENT)
+#define ENT    LT(_FUNC, KC_ENT)
 #define SYMO   OSL(_SYM)
 // END LEFT
 
@@ -80,27 +81,18 @@ enum custom_keycodes {
 
 // Stuff
 #define GRV     LT(0, KC_GRV)
-#define ADJUST  LT(_ADJUST, KC_DEL)
-#define FBSPC   LT(_FUNC, KC_BSPC)
-#define ESC     MEH_T( KC_DEL)
+#define ADJUST  LT(_ADJUST, KC_TAB)
+#define ESC     LT(_FUNC, KC_ESC)
 #define SPC    LT(_SYM, KC_SPC)//LT(0, KC_SPC)// RCTL_T(KC_SPC)
-#define TAB    LT(_NUM, KC_TAB)
-#define LTAB   LT(_FUNC, KC_TAB)
-// #define DEL    MEH_T(KC_DEL)
+#define TAB    HYPR_T(KC_TAB)
 
 // SPECIAL THUMBS
 #define C_BSP  C(KC_BSPC)
 #define A_BSP  A(KC_BSPC)
-#define G_ENT  LGUI_T(KC_ENT)
-#define S_ENT  LSFT_T(KC_ENT)
-#define C_ENT  LCTL_T(KC_ENT)
 
 // NUMBERS
-#define TWO  MT(MOD_LCTL | MOD_LGUI, KC_2)
 #define POPZED  MT(MOD_LCTL | MOD_LGUI, KC_0)
-#define B_PERC LT(_BRK, KC_PERC)
-
-
 // shortcuts
 #define NXTTAB C(KC_TAB)
 #define PRVTAB S(C(KC_TAB))
+#define LPRN  LT(_SYM, KC_LPRN)

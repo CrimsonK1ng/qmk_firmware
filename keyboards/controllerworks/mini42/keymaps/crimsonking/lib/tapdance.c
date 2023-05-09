@@ -163,6 +163,7 @@ void td_tab(tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+
 // clang-format off
 
 // Tap dance declarations

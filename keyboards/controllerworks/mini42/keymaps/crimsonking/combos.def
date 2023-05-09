@@ -2,16 +2,18 @@
 
 // HOME
 COMB(lesc,          KC_ESC,     MOD_R, MOD_S)
+COMB(lent,          KC_ENT,     MOD_M, MOD_N)
 // Left
-// COMB(ltab,          KC_TAB,     LAY_F, LAY_W)
-//COMB(terminal,  HYPR(KC_T),     MOD_S, MOD_T)
+COMB(ctrl_bspc, C(KC_BSPC),      LAY_Y, MINS)
 
 // HOME
 COMB(esc_homer,     KC_ESC,      MOD_E, MOD_I) 
 // Right
-COMB(ctrl_bspc, C(KC_BSPC),      LAY_F, LAY_W)
 COMB(alt_bspc,  A(KC_BSPC),      LAY_U, LAY_Y)
-COMB(caps,        CW_TOGG,      MOD_COMM, MOD_DOT)
-COMB(colon,       CW_TOGG,       LAY_F, KC_P)
+
+
+// BOTH
+COMB(caps,        CW_TOGG,       MOD_COMM, MOD_DOT)
+COMB(lead,        QK_LEAD,       MOD_X, MOD_C)
 
 

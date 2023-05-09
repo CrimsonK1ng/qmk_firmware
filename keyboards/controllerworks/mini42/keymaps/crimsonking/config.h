@@ -29,7 +29,7 @@
 #define QUICK_TAP_TERM 150
 
 #define USB_SUSPEND_WAKEUP_DELAY 200
-// #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
 #define SPLIT_USB_DETECT
 #define SPLIT_USB_TIMEOUT 3000
@@ -38,7 +38,7 @@
 #define SPLIT_WATCHDOG_TIMEOUT 5000
 // in base config
 
-#define ONESHOT_TAP_TOGGLE 4 /* Tapping this number of times holds the key until tapped once again. */
+#define ONESHOT_TAP_TOGGLE 6 /* Tapping this number of times holds the key until tapped once again. */
 #define ONESHOT_TIMEOUT 2000 /* Time (in ms) before the one shot key is released */
 
 // #################
@@ -95,8 +95,8 @@
 #    undef ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT
 #    undef ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL
 #    undef ENABLE_RGB_MATRIX_CYCLE_ALL
-#    undef ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
-#    undef ENABLE_RGB_MATRIX_CYCLE_UP_DOWN
+#    define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
+#    define ENABLE_RGB_MATRIX_CYCLE_UP_DOWN
 #    undef ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
 #    undef ENABLE_RGB_MATRIX_CYCLE_OUT_IN
 #    undef ENABLE_RGB_MATRIX_CYCLE_OUT_IN_DUAL
@@ -115,7 +115,7 @@
 #    undef ENABLE_RGB_MATRIX_PIXEL_FRACTAL
 // enabled only if RGB_MATRIX_FRAMEBUFFER_EFFECTS is defined
 #    undef ENABLE_RGB_MATRIX_TYPING_HEATMAP
-#    undef ENABLE_RGB_MATRIX_DIGITAL_RAIN
+#    define ENABLE_RGB_MATRIX_DIGITAL_RAIN
 // enabled only of RGB_MATRIX_KEYPRESSES or RGB_MATRIX_KEYRELEASES is defined
 #    undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
 #    undef ENABLE_RGB_MATRIX_SOLID_REACTIVE
