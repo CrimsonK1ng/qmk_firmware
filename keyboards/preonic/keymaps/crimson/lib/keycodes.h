@@ -82,7 +82,7 @@ enum custom_keycodes {
 #define GRV     LT(0, KC_GRV)
 #define ADJUST  LT(_ADJUST, KC_BSPC)
 #define ESC     LT(_FUNC, KC_ESC)
-#define SPC    LT(_SYM, KC_SPC)//LT(0, KC_SPC)// RCTL_T(KC_SPC)
+#define SPC    LSFT_T(KC_SPC)//LT(0, KC_SPC)// RCTL_T(KC_SPC)
 #define TAB    HYPR_T(KC_TAB)
 
 // SPECIAL THUMBS

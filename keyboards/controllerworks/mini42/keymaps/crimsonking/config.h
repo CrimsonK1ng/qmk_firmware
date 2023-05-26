@@ -24,6 +24,7 @@
 #define PERMISSIVE_HOLD_PER_KEY
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 // #define TAPPING_TOGGLE 2
+// #define ACHORDION_ENABLE
 
 #define IGNORE_MOD_TAP_INTERRUPT
 #define QUICK_TAP_TERM 150
@@ -63,7 +64,7 @@
 
 // ################# Hit both shifts for the caps to be turned on while in word mode
 // #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD // I think this is less effective than using a combo
-#define CAPS_WORD_IDLE_TIMEOUT 2500
+#define CAPS_WORD_IDLE_TIMEOUT 1500
 // #################
 
 #ifdef RGB_MATRIX_ENABLE
