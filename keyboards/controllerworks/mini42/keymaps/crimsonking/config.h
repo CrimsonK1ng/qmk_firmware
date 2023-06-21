@@ -33,10 +33,10 @@
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
 #define SPLIT_USB_DETECT
-#define SPLIT_USB_TIMEOUT 3000
-#define SPLIT_USB_TIMEOUT_POLL 10
+#define SPLIT_USB_TIMEOUT 1000
+// #define SPLIT_USB_TIMEOUT_POLL 10
 #define SPLIT_WATCHDOG_ENABLE
-#define SPLIT_WATCHDOG_TIMEOUT 5000
+#define SPLIT_WATCHDOG_TIMEOUT 3000
 // in base config
 
 #define ONESHOT_TAP_TOGGLE 6 /* Tapping this number of times holds the key until tapped once again. */
