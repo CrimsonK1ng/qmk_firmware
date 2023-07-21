@@ -36,6 +36,7 @@ enum custom_keycodes {
 #define LAY_Y LT(_BRK, KC_Y)
 #define MINS  MEH_T(KC_MINS)
 #define HBSPC HYPR_T(KC_BSPC)
+#define MBSPC MEH_T(KC_BSPC)
 // MIDDLE
 #define MOD_M     RSFT_T(KC_M)
 #define MOD_N     RGUI_T(KC_N)

@@ -8,7 +8,7 @@ COMB(ctrl_bspc, C(KC_BSPC),      LAY_Y, MINS)
 
 // HOME
 COMB(esc_homer,     KC_ESC,      MOD_E, MOD_I)
-COMB(alfred,   G(KC_SPC),      MOD_S, LAY_F)
+COMB(tab,           KC_TAB,      LAY_W, LAY_F)
 // Right
 COMB(alt_bspc,  A(KC_BSPC),      LAY_U, LAY_Y)
 
