@@ -53,7 +53,7 @@ enum custom_keycodes {
 // END RIGHT
 
 // TOP LEFT
-#define MOD_Q LT(_BRK, KC_Q)
+#define MOD_Q LT(_NUM, KC_Q)
 #define LAY_W LT(_NAV, KC_W)
 #define LAY_F LT(_NUM, KC_F)
 #define MOD_B LT(_FUNC, KC_B)
@@ -72,8 +72,8 @@ enum custom_keycodes {
 #define MOD_D   KC_D
 #define MOD_V   KC_V
 // THUMBS
-#define BSPC   LT(_NAV, KC_BSPC)
-#define ENT    LT(_NUM, KC_ENT)
+#define BSPC   LT(_NUM, KC_BSPC)
+#define ENT    LT(_NAV, KC_ENT)
 #define SYMO   OSL(_SYM)
 // END LEFT
 

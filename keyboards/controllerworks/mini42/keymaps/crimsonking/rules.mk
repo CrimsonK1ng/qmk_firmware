@@ -10,10 +10,10 @@ OS_DETECTION_ENABLE = yes
 VPATH += keyboards/gboards
 
 # doesn't wait for response from pc
-NO_USB_STARTUP_CHECK = yes 
+NO_USB_STARTUP_CHECK = yes
 
 # expensive
-LEADER_ENABLE = yes
+#LEADER_ENABLE = yes
 TAP_DANCE_ENABLE = yes # requires a ton of space :(
 
 # SRC += lib/layer_lock.c

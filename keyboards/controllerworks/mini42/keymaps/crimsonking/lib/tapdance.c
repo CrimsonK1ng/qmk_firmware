@@ -150,6 +150,7 @@ void td_quot(tap_dance_state_t *state, void *user_data) {
     }
 }
 
+#ifdef LEADER_ENABLE
 void td_tab(tap_dance_state_t *state, void *user_data) {
     tap_state.state = cur_dance(state);
     switch (tap_state.state) {
@@ -165,6 +166,7 @@ void td_tab(tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+#endif
 
 // clang-format off
 
@@ -178,7 +180,6 @@ tap_dance_action_t tap_dance_actions[] = {
     [SDB_COLN] = ACTION_TAP_DANCE_FN(td_colon),
     [TP_EXLM] = ACTION_TAP_DANCE_FN(td_exlm),
     [TP_TILDA] = ACTION_TAP_DANCE_FN(td_tilda),
-    [TP_TAB] = ACTION_TAP_DANCE_FN(td_tab),
     [TP_QUOT] = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_ENT),
     [TP_DELNAV] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_DEL, _NAV),
 };

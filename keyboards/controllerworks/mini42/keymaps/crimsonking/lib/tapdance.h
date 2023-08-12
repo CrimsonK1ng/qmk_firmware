@@ -24,10 +24,10 @@ td_state_t dance_state(tap_dance_state_t *state);
 
 // clang-format off
 #ifdef TAP_DANCE_ENABLE
-enum { TD_CODE_START, 
-  SDB_UPDIR, 
-  SDB_BSLS, 
-  SDB_COLN, 
+enum { TD_CODE_START,
+  SDB_UPDIR,
+  SDB_BSLS,
+  SDB_COLN,
   TP_EXLM,
   TP_TILDA,
   TP_QUOT,
@@ -45,7 +45,6 @@ enum { TD_CODE_START,
 #    define TD_EXLM TD(TP_EXLM)
 #    define TD_TILDA TD(TP_TILDA)
 #    define TD_QUOT TD(TP_QUOT)
-#    define TD_TAB TD(TP_TAB)
 #    define TD_DELNAV TD(TP_DELNAV)
 
 #endif

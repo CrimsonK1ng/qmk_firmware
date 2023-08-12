@@ -46,21 +46,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ADJUST,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,  KC_BSPC,          KC_MUTE,
         KC_TAB,  MOD_Q,   LAY_W,    LAY_F,    KC_P,   MOD_B,   MOD_J,     KC_L,   LAY_U,   LAY_Y,    MINS,       HBSPC,    MBSPC,  KC_BSLS,          KC_DEL,
      OSL(_SYM),  MOD_A,   MOD_R,    MOD_S,   MOD_T,   MOD_G,             MOD_M,   MOD_N,   MOD_E,   MOD_I,       MOD_O,  KC_QUOT,  KC_ENT,           KC_HOME,
-         MOD_Z,           MOD_X,    MOD_C,   MOD_D,   MOD_V,   MOD_V,    MOD_K,   MOD_K,   MOD_H,MOD_COMM,     MOD_DOT, MOD_SLSH,  KC_RSFT, KC_UP,
+         MOD_Z,           MOD_X,    MOD_C,   MOD_D,   MOD_V,   MOD_Z,    MOD_K,   MOD_K,   MOD_H,MOD_COMM,     MOD_DOT, MOD_SLSH,  KC_RSFT, KC_UP,
        QK_LEAD, KC_LOPT,  CW_TOGG,           BSPC,              ENT,     OSMS,         SPC,            TAB,            KC_LEFT, KC_DOWN, KC_RGHT),
 
     [WIN_BASE] = LAYOUT_ansi_69(
         KC_ESC,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,          KC_MUTE,
         KC_TAB,  KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,    KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS,          KC_DEL,
-        KC_CAPS, KC_A,     KC_S,     KC_D,    KC_F,    KC_G,              KC_H,    KC_J,    KC_K,    KC_L,     KC_SCLN,  KC_QUOT,  KC_ENT,           KC_HOME,
+        KC_LCTL, KC_A,     KC_S,     KC_D,    KC_F,    KC_G,              KC_H,    KC_J,    KC_K,    KC_L,     KC_SCLN,  KC_QUOT,  KC_ENT,           KC_HOME,
         KC_LSFT, KC_Z,     KC_X,     KC_C,    KC_V,          KC_B,     KC_B,    KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT, KC_UP,
-        KC_LCTL, KC_LWIN,  KC_LALT,           KC_SPC,           ENT, OSMS,         KC_SPC,            KC_RALT,            KC_LEFT, KC_DOWN, KC_RGHT),
+        KC_LCTL, KC_LWIN,  KC_LALT,         KC_SPC,        KC_ENT, OSMS,            SPC,            KC_RALT,            KC_LEFT, KC_DOWN, KC_RGHT),
 
     [_SYM] = LAYOUT_ansi_69(
         KC_ESC,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,          KC_MUTE,
-        RGB_TOG, TD_TILDA,  KC_SLSH,  KC_COLN, KC_PLUS,      WQ,          KC_PIPE,  KC_AMPR, KC_ASTR, KC_QUES, KC_MINS,  _______,  _______,  _______,          _______,
+        _______, TD_TILDA,  KC_SLSH,  KC_COLN, KC_PLUS,      WQ,          KC_PIPE,  KC_AMPR, KC_ASTR, KC_QUES, KC_MINS,  _______,  _______,  _______,          _______,
         KC_PIPE,    KC_AT, KC_PERC,  KC_EXLM,  KC_EQL, KC_PIPE,                     KC_COLN,  KC_EQL,  KC_DQT, KC_UNDS,  KC_SCLN,  KC_BSLS,  _______,          _______,
-        _______,               GRV,  KC_HASH, KC_BSLS, TD_UPDIR,TD_UPDIR, TD_UPDIR,TD_UPDIR,  KC_CIRC,  KC_DLR,  KC_DOT,  _______,  _______, _______,
+        _______,               GRV,  KC_HASH, KC_BSLS, KC_BSLS,TD_UPDIR, TD_UPDIR,TD_UPDIR,  KC_CIRC,  KC_DLR,  KC_DOT,  _______,  _______, _______,
         _______, _______,  _______,           _______,          _______,  _______,          _______,           _______,            _______, _______, _______),
 
     [_BRK] = LAYOUT_ansi_69(
