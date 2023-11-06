@@ -35,7 +35,7 @@ enum custom_keycodes {
 #define LAY_U KC_U
 #define LAY_Y LT(_BRK, KC_Y)
 #define MINS  LT(_BRK,KC_MINS)
-#define HBSPC HYPR_T(KC_BSPC)
+#define FBSPC LT(_FUNC, KC_BSPC)
 // MIDDLE
 #define MOD_M     RSFT_T(KC_M)
 #define MOD_N     RGUI_T(KC_N)
@@ -47,7 +47,7 @@ enum custom_keycodes {
 #define MOD_SLSH  RGUI_T(KC_SLSH)
 #define MOD_DOT   RCTL_T(KC_DOT)
 #define MOD_COMM  LALT_T(KC_COMM)
-#define MOD_H     KC_H
+#define MOD_H     RSFT_T(KC_H)
 #define MOD_K     KC_K
 // END RIGHT
 
@@ -68,7 +68,7 @@ enum custom_keycodes {
 #define MOD_Z   LGUI_T(KC_Z)
 #define MOD_X   LCTL_T(KC_X)
 #define MOD_C   LALT_T(KC_C)
-#define MOD_D   KC_D
+#define MOD_D   LSFT_T(KC_D)
 #define MOD_V   KC_V
 // THUMBS
 #define BSPC   LT(_NUM, KC_BSPC)
@@ -82,7 +82,7 @@ enum custom_keycodes {
 #define GRV     LT(0, KC_GRV)
 #define ADJUST  LT(_ADJUST, KC_TAB)
 #define ESC     LT(_NUM, KC_ESC)
-#define SPC    LT(_NAV, KC_SPC)//LT(0, KC_SPC)// RCTL_T(KC_SPC)
+#define SPC    LT(_FUNC, KC_SPC)//LT(0, KC_SPC)// RCTL_T(KC_SPC)
 #define TAB    HYPR_T(KC_TAB)
 
 // SPECIAL THUMBS
