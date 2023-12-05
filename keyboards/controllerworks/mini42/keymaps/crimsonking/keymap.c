@@ -235,6 +235,11 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 // makes it a little difficult to manage with layer taps
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case BSPC:
+            return true;
+        default:
+            return true;
+/*
             // MIDDLE
             //
         case MODLAY:
@@ -262,6 +267,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
             return false;
         default:
             return true;
+*/
     }
 }
 #endif

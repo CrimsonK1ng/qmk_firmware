@@ -35,7 +35,7 @@ enum custom_keycodes {
 #define LAY_U KC_U
 #define LAY_Y LT(_BRK, KC_Y)
 #define MINS  LT(_BRK,KC_MINS)
-#define FBSPC LSFT_T(KC_BSPC)
+#define FBSPC LT(_FUNC, KC_BSPC)
 // MIDDLE
 #define MOD_M     RSFT_T(KC_M)
 #define MOD_N     RGUI_T(KC_N)
